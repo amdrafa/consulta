@@ -278,13 +278,13 @@ export function Tutorial() {
 
 
                     <div className="p-4">
-                        {isPlayerButtonVisible && (
+                        <a href="https://go.perfectpay.com.br/PPU38CN7A5S">
                             <button onClick={() => {
                                 setStep(3)
                             }} className="flex justify-center w-full items-center space-x-2 text-xl bg-blue-700 text-white p-4 font-bold rounded-3xl">
                                 <span>RESGATAR DINHEIRO AGORA</span>
                             </button>
-                        )}
+                        </a>
                         <div className="justify-center flex flex-col my-8 items-center text-gray-800">
                             <img width={100} src={logo} alt="logo" />
                             <div>Site de consultas oficial.</div>
