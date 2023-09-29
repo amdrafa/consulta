@@ -270,7 +270,6 @@ export function Tutorial() {
                             <input
                                 className={`bg-gray-200 rounded-3xl p-4 text-gray-700`}
                                 placeholder="Exemplo: 000.000.000-00"
-                                type="number"
                             />
                         </div>
                     </div>
