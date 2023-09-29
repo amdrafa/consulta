@@ -178,7 +178,7 @@ export function Tutorial() {
                 <section className="pt-24">
                     {user ? (
                         <div className="flex flex-col items-center space-y-2">
-                            <h2 className="font-bold text-gray-800 text-center text-3xl">Olá, {user.nome.split(" ")[0]}!</h2>
+                            <h2 className="font-bold text-gray-800 text-center text-3xl">Olá, {user ? user?.nome?.split(" ")[0] : "Usuário"}!</h2>
                         </div>
                     ) : (
                         <div className="flex flex-col items-center space-y-2">
@@ -233,7 +233,7 @@ export function Tutorial() {
                 <section className="pt-24">
 
                     <div className="flex flex-col items-center space-y-2">
-                        <h2 className="font-bold text-gray-800 text-center text-3xl">{user.nome.split(" ")[0]}, você tem dinheiro para resgatar.</h2>
+                        <h2 className="font-bold text-gray-800 text-center text-3xl">{user && user?.nome?.length > 0 ? user?.nome.split(" ")[0] : "Olá,"}, você tem dinheiro para resgatar.</h2>
                     </div>
 
 
@@ -260,7 +260,7 @@ export function Tutorial() {
                             <div>
                                 <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
                                 <span className="font-bold text-4xl text-yellow-400">
-                                    R$ 97,24
+                                    R$ 47,24
                                 </span>
                             </div>
                         </div>
