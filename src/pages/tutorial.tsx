@@ -213,9 +213,9 @@ export function Tutorial() {
                     )}
 
                     <div className="p-4">
-                        <div dangerouslySetInnerHTML={{ __html: ' <div id="vid_6514a8a9c149ff00091c34ad" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6514a8a9c149ff00091c34ad" src="https://images.converteai.net/3152e291-54b0-4d06-ac87-cc6789d007d2/players/6514a8a9c149ff00091c34ad/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6514a8a9c149ff00091c34ad" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_653e714409054e00092a768a" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_653e714409054e00092a768a" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/653e714409054e00092a768a/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_653e714409054e00092a768a" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
                         <Helmet>
-                            <script type="text/javascript" id="scr_6514a8a9c149ff00091c34ad">var s=document.createElement("script");s.src="https://scripts.converteai.net/3152e291-54b0-4d06-ac87-cc6789d007d2/players/6514a8a9c149ff00091c34ad/player.js",s.async=!0,document.head.appendChild(s);</script>
+                            <script type="text/javascript" id="scr_653e714409054e00092a768a">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/653e714409054e00092a768a/player.js",s.async=!0,document.head.appendChild(s);</script>
                         </Helmet>
                     </div>
                     <div className="p-4">
