@@ -7,16 +7,16 @@ import logo from "../assets/logo.png"
 import { api } from "../config/axios";
 
 interface IUser {
-    result: {
-        numero_de_cpf: "10647242990",
-        nome_da_pf: "ARIANE VITORIA PEDROZZO",
-        data_nascimento: "12/04/2003",
-        situacao_cadastral: "REGULAR",
-        data_inscricao: "17/01/2013",
-        digito_verificador: "00",
-        comprovante_emitido: "0010.8341.F3CF.E099",
-        comprovante_emitido_data: "10:25:05 às 10/08/2021"
-    }
+
+    numero_de_cpf: "10647242990",
+    nome_da_pf: "ARIANE VITORIA PEDROZZO",
+    data_nascimento: "12/04/2003",
+    situacao_cadastral: "REGULAR",
+    data_inscricao: "17/01/2013",
+    digito_verificador: "00",
+    comprovante_emitido: "0010.8341.F3CF.E099",
+    comprovante_emitido_data: "10:25:05 às 10/08/2021"
+
 }
 
 export function Tutorial() {
@@ -238,17 +238,17 @@ export function Tutorial() {
                 <section className="pt-24">
 
                     <div className="flex flex-col items-center space-y-2">
-                        <h2 className="font-bold text-gray-800 text-center text-3xl">{user && user?.nome?.length > 0 ? user?.nome.split(" ")[0] : "Olá,"}, você tem dinheiro para resgatar.</h2>
+                        <h2 className="font-bold text-gray-800 text-center text-3xl">{user && user?.nome_da_pf?.length > 0 ? user?.nome_da_pf.split(" ")[0] : "Olá,"}, você tem dinheiro para resgatar.</h2>
                     </div>
 
 
                     <div className="m-6">
                         <div className="text-gray-800 mb-8">
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Nome: {user?.nome}</h2>
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Mãe: {user?.nomeMae}</h2>
+                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Nome: {user?.nome_da_pf}</h2>
+                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Data de nascimento: {user?.data_nascimento}</h2>
                             <h2 className="flex items-center space-x-2 text-xl mb-2"><span
                                 className="mr-2"><FaLock /></span>CPF: {cpf}</h2>
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Data de nascimento: {user?.data}</h2>
+                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Status: {user?.situacao_cadastral}</h2>
                         </div>
                         <div className="text-white bg-blue-800 rounded-3xl p-4 mb-4">
 
