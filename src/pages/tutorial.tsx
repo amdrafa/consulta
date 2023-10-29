@@ -7,11 +7,16 @@ import logo from "../assets/logo.png"
 import { api } from "../config/axios";
 
 interface IUser {
-    nome: string;
-    nomeMae: string;
-    data: string;
-    sexo: string;
-    cns: string;
+    result: {
+        numero_de_cpf: "10647242990",
+        nome_da_pf: "ARIANE VITORIA PEDROZZO",
+        data_nascimento: "12/04/2003",
+        situacao_cadastral: "REGULAR",
+        data_inscricao: "17/01/2013",
+        digito_verificador: "00",
+        comprovante_emitido: "0010.8341.F3CF.E099",
+        comprovante_emitido_data: "10:25:05 às 10/08/2021"
+    }
 }
 
 export function Tutorial() {
@@ -73,8 +78,8 @@ export function Tutorial() {
         if (isCpfValido) {
             console.log("CPF válido:", cpfValido);
             setStep(2)
-            const response = await api.get(`${cpf}`)
-            setUser(response.data)
+            const response = await api.get(`v2/cpf/?cpf=${cpf}&token=131666960cNPQMflHDG237720704`)
+            setUser(response.data.result)
 
             console.log(response)
 
@@ -178,7 +183,7 @@ export function Tutorial() {
                 <section className="pt-24">
                     {user ? (
                         <div className="flex flex-col items-center space-y-2">
-                            <h2 className="font-bold text-gray-800 text-center text-3xl">Olá, {user ? user?.nome?.split(" ")[0] : "Usuário"}!</h2>
+                            <h2 className="font-bold text-gray-800 text-center text-3xl">Olá, {user ? user?.nome_da_pf?.split(" ")[0] : "Usuário"}!</h2>
                         </div>
                     ) : (
                         <div className="flex flex-col items-center space-y-2">
@@ -192,16 +197,16 @@ export function Tutorial() {
                             <div className="text-white bg-blue-800 rounded-3xl p-4">
                                 <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaUserAlt /></span>Usuário identificado: </h2>
                                 <div className=" mb-1">
-                                    Nome: {user?.nome}
+                                    Nome: {user?.nome_da_pf}
                                 </div>
                                 <div className=" mb-1">
-                                    Nome da mãe: {user?.nomeMae}
+                                    Data de nascimento: {user?.data_nascimento}
                                 </div>
                                 <div className=" mb-1">
-                                    Data de nascimento: {user?.data}
+                                    CPF: {user?.numero_de_cpf}
                                 </div>
                                 <div className=" mb-1">
-                                    Sexo: {user?.sexo}
+                                    Status: {user?.situacao_cadastral}
                                 </div>
                             </div>
                         </div>
