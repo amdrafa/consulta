@@ -1,11 +1,13 @@
+import logo from "../assets/logo4.png"
+
 export function Footer() {
     return (
         <footer className="bg-blue-800 text-white">
             <div className="container mx-auto py-6 mb-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-                    <h2 className="flex justify-center font-bold text-xl">
-                        Consulta Brasil
-                    </h2>
+                    <div className="flex justify-center">
+                        <img width={100} src={logo} alt="" />
+                    </div>
                     <div className="text-center md:text-left">
                         <ul className="space-y-2">
                             <li>
