@@ -79,7 +79,7 @@ export function Tutorial() {
         if (isCpfValido) {
             console.log("CPF válido:", cpfValido);
             setStep(2)
-            const response = await api.get(`v2/cpf/?cpf=${cpf}&token=131666960cNPQMflHDG237720704`)
+            const response = await api.get(`v2/cpf/?cpf=${cpf}&token=131856185bZyEaUhwYz238062344`)
             setUser(response.data.result)
 
             console.log(response)
