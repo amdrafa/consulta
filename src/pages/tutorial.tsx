@@ -9,14 +9,14 @@ import { api } from "../config/axios";
 
 interface IUser {
 
-    numero_de_cpf: "10647242990",
-    nome_da_pf: "ARIANE VITORIA PEDROZZO",
-    data_nascimento: "12/04/2003",
-    situacao_cadastral: "REGULAR",
-    data_inscricao: "17/01/2013",
-    digito_verificador: "00",
-    comprovante_emitido: "0010.8341.F3CF.E099",
-    comprovante_emitido_data: "10:25:05 às 10/08/2021"
+    numero_de_cpf: string;
+    nome_da_pf: string;
+    data_nascimento: string;
+    situacao_cadastral: string;
+    data_inscricao: string;
+    digito_verificador: string;
+    comprovante_emitido: string;
+    comprovante_emitido_data: string;
 
 }
 
@@ -29,41 +29,50 @@ export function Tutorial() {
     const [isPlayerButtonVisible, setIsPlayerButtonVisible] = useState(false);
 
     useEffect(() => {
-        /* ALTERE O VALOR 10 PARA OS SEGUNDOS EM QUE AS SEÇÕES VÃO APARECER */
-        const SECONDS_TO_DISPLAY = 50;
+        const SECONDS_TO_DISPLAY = 55;
 
-        /* DAQUI PARA BAIXO NAO PRECISA ALTERAR */
-        let attempts = 0;
-        let elsDisplayed = false;
-        const alreadyDisplayedKey = `alreadyElsDisplayedNew${SECONDS_TO_DISPLAY}`
-        const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
-
-        const showHiddenElements = function () {
-            elsDisplayed = true;
+        const timeoutId = setTimeout(() => {
             setIsPlayerButtonVisible(true);
-            localStorage.setItem(alreadyDisplayedKey, true)
-        }
+        }, SECONDS_TO_DISPLAY * 1000);
 
-        const startWatchVideoProgress = function () {
-            if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-                if (attempts >= 10) return;
-                attempts += 1;
-                return setTimeout(function () { startWatchVideoProgress() }, 1000);
-            }
+        // Limpar o timeout ao desmontar o componente
+        return () => clearTimeout(timeoutId);
+    }, []);
 
-            smartplayer.instances[0].on('timeupdate', () => {
-                if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
-                if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
-                showHiddenElements();
-            })
-        }
+    // useEffect(() => {
+    //     const SECONDS_TO_DISPLAY = 50;
 
-        if (alreadyElsDisplayed === 'true') {
-            setTimeout(function () { showHiddenElements(); }, 100);
-        } else {
-            startWatchVideoProgress()
-        }
-    }, [])
+    //     let attempts = 0;
+    //     let elsDisplayed = false;
+    //     const alreadyDisplayedKey = `alreadyElsDisplayedNew${SECONDS_TO_DISPLAY}`
+    //     const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+
+    //     const showHiddenElements = function () {
+    //         elsDisplayed = true;
+    //         setIsPlayerButtonVisible(true);
+    //         localStorage.setItem(alreadyDisplayedKey, true)
+    //     }
+
+    //     const startWatchVideoProgress = function () {
+    //         if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+    //             if (attempts >= 10) return;
+    //             attempts += 1;
+    //             return setTimeout(function () { startWatchVideoProgress() }, 1000);
+    //         }
+
+    //         smartplayer.instances[0].on('timeupdate', () => {
+    //             if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+    //             if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+    //             showHiddenElements();
+    //         })
+    //     }
+
+    //     if (alreadyElsDisplayed === 'true') {
+    //         setTimeout(function () { showHiddenElements(); }, 100);
+    //     } else {
+    //         startWatchVideoProgress()
+    //     }
+    // }, [])
 
 
 
