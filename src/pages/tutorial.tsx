@@ -29,7 +29,7 @@ export function Tutorial() {
     const [isPlayerButtonVisible, setIsPlayerButtonVisible] = useState(false);
 
     useEffect(() => {
-        const SECONDS_TO_DISPLAY = 55;
+        const SECONDS_TO_DISPLAY = 48;
 
         const timeoutId = setTimeout(() => {
             setIsPlayerButtonVisible(true);
