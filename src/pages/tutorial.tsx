@@ -277,7 +277,7 @@ export function Tutorial() {
                             <div>
                                 <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
                                 <span className="font-bold text-4xl text-yellow-400">
-                                    R$ 107,24
+                                    R$ 67,90
                                 </span>
                             </div>
                         </div>
@@ -306,7 +306,7 @@ export function Tutorial() {
 
 
                     <div className="p-4">
-                        <a href="https://go.perfectpay.com.br/PPU38CN7A5S">
+                        <a href="https://go.iexperience.com.br/13006501">
                             <button onClick={() => {
                                 setStep(3)
                             }} className="flex justify-center w-full items-center space-x-2 text-xl bg-blue-700 text-white p-4 font-bold rounded-3xl">
