@@ -29,7 +29,7 @@ export function Tutorial() {
     const [isPlayerButtonVisible, setIsPlayerButtonVisible] = useState(false);
 
     useEffect(() => {
-        const SECONDS_TO_DISPLAY = 48;
+        const SECONDS_TO_DISPLAY = 53;
 
         const timeoutId = setTimeout(() => {
             setIsPlayerButtonVisible(true);
@@ -267,7 +267,7 @@ export function Tutorial() {
                             <div>
                                 <h2 className="flex items-center space-x-2 text-xl mb-2">Valor para saque:</h2>
                                 <span className="font-bold text-4xl text-lime-400">
-                                    R$ 2340,56
+                                    R$ 1873,98
                                 </span>
                             </div>
                         </div>
@@ -277,7 +277,7 @@ export function Tutorial() {
                             <div>
                                 <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
                                 <span className="font-bold text-4xl text-yellow-400">
-                                    R$ 47,24
+                                    R$ 107,24
                                 </span>
                             </div>
                         </div>
