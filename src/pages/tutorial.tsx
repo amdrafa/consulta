@@ -311,15 +311,7 @@ export function Tutorial() {
                             </Helmet>
                         </div>
 
-                        {/* <div className="text-white bg-blue-800 rounded-3xl p-4">
 
-                            <div>
-                                <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
-                                <span className="font-bold text-4xl text-yellow-400">
-                                    R$ 67,90
-                                </span>
-                            </div>
-                        </div> */}
 
                         <div className="text-xl text-gray-700 font-bold mt-10 mb-10">
                             Esse dinheiro foi liberado por conta dos juros que você pagou nos últimos anos.
@@ -342,6 +334,18 @@ export function Tutorial() {
                         </div>
                     </div>
 
+                    <div className="px-4">
+                        <div className="text-white bg-blue-800 rounded-3xl p-4">
+
+                            <div>
+                                <h2 className="flex items-center space-x-2 text-xl mb-2">Taxa para sacar:</h2>
+                                <span className="font-bold text-4xl text-yellow-400">
+                                    R$ 65,73
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                     <h2 className="py-6 font-bold text-blue-700 px-2 text-3xl text-center">
                         Último passo para você receber o saque:
                     </h2>
@@ -350,6 +354,8 @@ export function Tutorial() {
                         Para finalizarmos o seu saque, é necessário o pagamento da <span className="text-red-500 font-bold">taxa única</span> de <span className="font-bold">R$65,73.</span> Você pode pagar esse valor em até 12x de R$7,80.
                     </div>
 
+
+
                     <h2 className="py-6 font-bold text-blue-700 px-2 text-3xl text-center">
                         Por que é cobrado uma taxa?
                     </h2>
@@ -357,6 +363,14 @@ export function Tutorial() {
                     <div className="text-gray-700 text-xl text-center px-4 my-2 mb-8">
                         Esta taxa é cobrada única e exclusivamente para manter nossos servidores ativos ajudando cada vez mais brasileiros a recuperarem seu dinheiro.
                     </div>
+
+                    <h2 className="py-6 font-bold text-blue-700 px-2 text-3xl text-center">
+                        Gerar o saque do dinheiro esquecido e <span className="text-red-600">não pagar a taxa pode acarretar em MULTA</span>
+                    </h2>
+
+                    <h2 className="py-6 font-bold text-blue-700 px-4 text-3xl text-center mb-6">
+                        Só clique em <span className="font-extrabold">"Resgatar dinheiro agora"</span> se você pode pagar a taxa de saque!
+                    </h2>
 
 
                     <div className="p-4">
