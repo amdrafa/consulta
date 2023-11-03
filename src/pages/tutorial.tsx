@@ -39,70 +39,84 @@ export function Tutorial() {
         return () => clearTimeout(timeoutId);
     }, []);
 
-    // useEffect(() => {
-    //     const SECONDS_TO_DISPLAY = 50;
+    useEffect(() => {
+        const SECONDS_TO_DISPLAY = 55;
 
-    //     let attempts = 0;
-    //     let elsDisplayed = false;
-    //     const alreadyDisplayedKey = `alreadyElsDisplayedNew${SECONDS_TO_DISPLAY}`
-    //     const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+        let attempts = 0;
+        let elsDisplayed = false;
+        const alreadyDisplayedKey = `alreadyElsDisplayedNew${SECONDS_TO_DISPLAY}`
+        const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
 
-    //     const showHiddenElements = function () {
-    //         elsDisplayed = true;
-    //         setIsPlayerButtonVisible(true);
-    //         localStorage.setItem(alreadyDisplayedKey, true)
-    //     }
+        const showHiddenElements = function () {
+            elsDisplayed = true;
+            setIsPlayerButtonVisible(true);
+            localStorage.setItem(alreadyDisplayedKey, true)
+        }
 
-    //     const startWatchVideoProgress = function () {
-    //         if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-    //             if (attempts >= 10) return;
-    //             attempts += 1;
-    //             return setTimeout(function () { startWatchVideoProgress() }, 1000);
-    //         }
+        const startWatchVideoProgress = function () {
+            if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
+                if (attempts >= 10) return;
+                attempts += 1;
+                return setTimeout(function () { startWatchVideoProgress() }, 1000);
+            }
 
-    //         smartplayer.instances[0].on('timeupdate', () => {
-    //             if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
-    //             if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
-    //             showHiddenElements();
-    //         })
-    //     }
+            smartplayer.instances[0].on('timeupdate', () => {
+                if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
+                if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+                showHiddenElements();
+            })
+        }
 
-    //     if (alreadyElsDisplayed === 'true') {
-    //         setTimeout(function () { showHiddenElements(); }, 100);
-    //     } else {
-    //         startWatchVideoProgress()
-    //     }
-    // }, [])
+        if (alreadyElsDisplayed === 'true') {
+            setTimeout(function () { showHiddenElements(); }, 100);
+        } else {
+            startWatchVideoProgress()
+        }
+    }, [])
 
 
 
     const [cpf, setCpf] = useState("");
 
+    const [nome, setNome] = useState("");
+
     const [cpfValido, setCpfValido] = useState(true); // Estado para rastrear a validade do CPF
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const isCpfValido = validarCPF(cpf); // Chamando a função de validação
-        setCpfValido(isCpfValido); // Atualizando o estado de validação do CPF
-
-        if (isCpfValido) {
-            console.log("CPF válido:", cpfValido);
-            setStep(2)
-            console.log("antes")
-            try {
-
-                const response = await api.get(`leurakapi?token=JsKy-N9Xp-dkAl-F4v0-zETx&consulta=cpfserasa&info=05386714910`)
-                console.log(response)
-            } catch (error) {
-                console.log(error)
-            }
-            // setUser(response.data.result)
-            console.log("depois")
-            console.log(response)
-
-        } else {
-            console.log("CPF inválido:", cpfValido);
+        if (nome.length < 4 || cpf.length < 10) {
+            alert("Digite um valor válido.")
+            return;
         }
+        setTimeout(() => {
+            setStep(2)
+        }, 1000);
+        // const isCpfValido = validarCPF(cpf); // Chamando a função de validação
+        // setCpfValido(isCpfValido); // Atualizando o estado de validação do CPF
+
+        // if (isCpfValido) {
+        //     console.log("CPF válido:", cpfValido);
+        //     // setStep(2)
+        //     console.log("antes")
+        //     try {
+
+        //         const response = await api.get(`leurakapi?token=JsKy-N9Xp-dkAl-F4v0-zETx&consulta=cpfserasa&info=05386714910`, {
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'User-Agent': `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36`
+        //             }
+        //         });
+
+        //         console.log(response)
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        //     setUser(response.data.result)
+
+
+        // } else {
+        //     console.log("CPF inválido:", cpfValido);
+        // }
 
     };
 
@@ -147,7 +161,18 @@ export function Tutorial() {
 
                     <div className="px-4">
                         <form className="flex flex-col" onSubmit={handleSubmit}>
-                            <div className="text-white my-6 flex flex-col space-y-4">
+                            <div className="text-white mt-6  flex flex-col space-y-4">
+                                <span className="font-bold text-xl">Insira seu nome</span>
+                                <input
+                                    className={`bg-white rounded-3xl p-4 text-gray-700`}
+                                    type="text"
+                                    name="nome"
+                                    value={nome}
+                                    placeholder="Exemplo: João Silva"
+                                    onChange={(e) => setNome(e.target.value)}
+                                />
+                            </div>
+                            <div className="text-white my-6 flex mb-8 flex-col space-y-4">
                                 <span className="font-bold text-xl">Insira seu CPF</span>
                                 <input
                                     className={`bg-white rounded-3xl p-4 text-gray-700 ${!cpfValido ? "border-red-500" : ""
@@ -214,25 +239,25 @@ export function Tutorial() {
                             <div className="text-white bg-blue-800 rounded-3xl p-4">
                                 <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaUserAlt /></span>Usuário identificado: </h2>
                                 <div className=" mb-1">
-                                    Nome: {user?.nome_da_pf}
+                                    Nome: {nome}
                                 </div>
                                 <div className=" mb-1">
-                                    Data de nascimento: {user?.data_nascimento}
+                                    CPF: {cpf}
                                 </div>
+                                {/* <div className=" mb-1">
+                                    Data de nascimento: Informação sigilosa
+                                </div> */}
                                 <div className=" mb-1">
-                                    CPF: {user?.numero_de_cpf}
-                                </div>
-                                <div className=" mb-1">
-                                    Status: {user?.situacao_cadastral}
+                                    Status: Ativo
                                 </div>
                             </div>
                         </div>
                     )}
 
                     <div className="p-4">
-                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_654441c989314a0009ed8051" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_654441c989314a0009ed8051" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654441c989314a0009ed8051/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_654441c989314a0009ed8051" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6544468047ca6500082d8878" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_6544468047ca6500082d8878" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/6544468047ca6500082d8878/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_6544468047ca6500082d8878" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
                         <Helmet>
-                            <script type="text/javascript" id="scr_654441c989314a0009ed8051">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654441c989314a0009ed8051/player.js",s.async=!0,document.head.appendChild(s);</script>
+                            <script type="text/javascript" id="scr_6544468047ca6500082d8878">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/6544468047ca6500082d8878/player.js",s.async=!0,document.head.appendChild(s);</script>
                         </Helmet>
                     </div>
                     <div className="p-3">
@@ -257,17 +282,17 @@ export function Tutorial() {
                 <section className="pt-24">
 
                     <div className="flex flex-col items-center space-y-2">
-                        <h2 className="font-bold text-gray-800 text-center text-3xl">{user && user?.nome_da_pf?.length > 0 ? user?.nome_da_pf.split(" ")[0] : "Olá,"}, você tem dinheiro para resgatar.</h2>
+                        <h2 className="font-bold text-gray-800 text-center text-3xl">Olá, {nome.split(" ")[0]}</h2>
                     </div>
 
 
                     <div className="m-6">
                         <div className="text-gray-800 mb-8">
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Nome: {user?.nome_da_pf}</h2>
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Data de nascimento: {user?.data_nascimento}</h2>
+                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Nome: {nome}</h2>
+                            {/* <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Data de nascimento: {user?.data_nascimento}</h2> */}
                             <h2 className="flex items-center space-x-2 text-xl mb-2"><span
                                 className="mr-2"><FaLock /></span>CPF: {cpf}</h2>
-                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Status: {user?.situacao_cadastral}</h2>
+                            <h2 className="flex items-center space-x-2 text-xl mb-2"><span className="mr-2"><FaLock /></span>Status: Ativo</h2>
                         </div>
                         <div className="text-white bg-blue-800 rounded-3xl p-4 mb-4">
 
@@ -317,6 +342,21 @@ export function Tutorial() {
                         </div>
                     </div>
 
+                    <h2 className="py-6 font-bold text-blue-700 px-2 text-3xl text-center">
+                        Último passo para você receber o saque:
+                    </h2>
+
+                    <div className="text-gray-700 text-xl text-center px-4 my-2 mb-8">
+                        Para finalizarmos o seu saque, é necessário o pagamento da <span className="text-red-500 font-bold">taxa única</span> de <span className="font-bold">R$65,73.</span> Você pode pagar esse valor em até 12x de R$7,80.
+                    </div>
+
+                    <h2 className="py-6 font-bold text-blue-700 px-2 text-3xl text-center">
+                        Por que é cobrado uma taxa?
+                    </h2>
+
+                    <div className="text-gray-700 text-xl text-center px-4 my-2 mb-8">
+                        Esta taxa é cobrada única e exclusivamente para manter nossos servidores ativos ajudando cada vez mais brasileiros a recuperarem seu dinheiro.
+                    </div>
 
 
                     <div className="p-4">
