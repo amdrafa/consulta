@@ -223,9 +223,9 @@ export function Tutorial() {
                     )}
 
                     <div className="p-4">
-                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_654272d8ce77130009e8d50a" style="position:relative;width:100%;padding: 125% 0 0;"><img id="thumb_654272d8ce77130009e8d50a" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654272d8ce77130009e8d50a/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_654272d8ce77130009e8d50a" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_654441c989314a0009ed8051" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_654441c989314a0009ed8051" src="https://images.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654441c989314a0009ed8051/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_654441c989314a0009ed8051" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div>' }} />
                         <Helmet>
-                            <script type="text/javascript" id="scr_654272d8ce77130009e8d50a">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654272d8ce77130009e8d50a/player.js",s.async=!0,document.head.appendChild(s);</script>
+                            <script type="text/javascript" id="scr_654441c989314a0009ed8051">var s=document.createElement("script");s.src="https://scripts.converteai.net/ae05c9da-e785-4dd5-894c-cd71694958ee/players/654441c989314a0009ed8051/player.js",s.async=!0,document.head.appendChild(s);</script>
                         </Helmet>
                     </div>
                     <div className="p-3">
